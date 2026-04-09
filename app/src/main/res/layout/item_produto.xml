@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnMenos"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-"
+            android:textSize="20sp"
+            style="?attr/borderlessButtonStyle"/>
+
+        <TextView
+            android:id="@+id/txtQuantidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btnMais"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+"
+            android:textSize="20sp"
+            style="?attr/borderlessButtonStyle"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtNomeProduto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="8dp"
+        android:text="Produto"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicionado"
+        android:textColor="#4CAF50"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+</LinearLayout>
