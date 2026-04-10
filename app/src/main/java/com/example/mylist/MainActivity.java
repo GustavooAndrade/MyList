@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Dentro do onCreate
         Button btnAdd = findViewById(R.id.btn_addProduto);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {

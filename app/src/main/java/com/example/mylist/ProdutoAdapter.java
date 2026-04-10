@@ -31,11 +31,9 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.nome.setText(listaProdutos.get(position));
 
-        // Reinicia a quantidade para 0 ao carregar o item (evita erros de reciclagem visual)
         holder.txtQuantidade.setText("0");
         holder.status.setVisibility(View.GONE);
 
-        // Lógica do botão MAIS (+)
         holder.btnMais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,14 +41,12 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
                 qtd++;
                 holder.txtQuantidade.setText(String.valueOf(qtd));
 
-                // Se a quantidade for maior que 0, mostra "Adicionado"
                 if (qtd > 0) {
                     holder.status.setVisibility(View.VISIBLE);
                 }
             }
         });
 
-        // Lógica do botão MENOS (-)
         holder.btnMenos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +56,6 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.MyViewHo
                     holder.txtQuantidade.setText(String.valueOf(qtd));
                 }
 
-                // Se voltar a 0, esconde o "Adicionado"
                 if (qtd == 0) {
                     holder.status.setVisibility(View.GONE);
                 }

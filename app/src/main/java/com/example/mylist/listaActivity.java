@@ -30,8 +30,6 @@ public class listaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_produtos);
 
-        // 1. Configuração de Padding para telas modernas (EdgeToEdge)
-        // Se o seu XML principal tiver o ID 'main', isso evita que a barra de busca fique sob a barra de status
         View mainView = findViewById(R.id.main);
         if (mainView != null) {
             ViewCompat.setOnApplyWindowInsetsListener(mainView, (v, insets) -> {
@@ -41,21 +39,15 @@ public class listaActivity extends AppCompatActivity {
             });
         }
 
-        // 2. Inicializar componentes da tela
         editPesquisar = findViewById(R.id.editPesquisar);
         btnFeito = findViewById(R.id.btnFeito);
         recyclerProdutos = findViewById(R.id.recyclerProdutos);
 
-        // 3. Configurar a lista de sugestões
-
-
-        // 4. Configurar o RecyclerView
         adapter = new ProdutoAdapter(listaSugestoes);
         recyclerProdutos.setLayoutManager(new LinearLayoutManager(this));
         recyclerProdutos.setHasFixedSize(true);
         recyclerProdutos.setAdapter(adapter);
 
-        // 5. Ação do botão "Feito"
         btnFeito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,20 +55,18 @@ public class listaActivity extends AppCompatActivity {
             }
         });
 
-        // 6. Ação ao digitar na barra de pesquisa e apertar "Enter"
         editPesquisar.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 String itemDigitado = editPesquisar.getText().toString();
 
                 if (!itemDigitado.isEmpty()) {
-                    // Adiciona o novo item no topo da lista
                     listaSugestoes.add(0, itemDigitado);
                     adapter.notifyItemInserted(0); // Avisa o adapter para atualizar a tela
                     recyclerProdutos.scrollToPosition(0); // Rola para o topo para ver o item
 
                     Toast.makeText(listaActivity.this, "Adicionado: " + itemDigitado, Toast.LENGTH_SHORT).show();
-                    editPesquisar.setText(""); // Limpa o campo
+                    editPesquisar.setText("");
                 }
                 return true;
             }
